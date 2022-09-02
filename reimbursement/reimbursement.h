@@ -1,17 +1,18 @@
-#include <iostream>
 
-class Reimbursement {
- private:
-  static int count;
+//Trust me, there will be a global variable called count at some point
+extern int count;
+
+struct Reimbursement {
   int id;
   float amount;
- public:
-  Reimbursement(float val);
-  float getAmount() const;
-  int getId() const;
-  void setAmount(float val);
 };
 
+typedef struct Reimbursement Reimbursement_t;
 
-std::ostream& operator<<(std::ostream&, const Reimbursement&);
+float getAmount(Reimbursement_t* r);
+int getId(Reimbursement_t* r);
+void setAmount(Reimbursement_t* r, float val);
+
+
+void printReimbursement(Reimbursement_t* r);
 

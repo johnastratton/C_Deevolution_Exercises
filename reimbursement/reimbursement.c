@@ -1,17 +1,11 @@
-#include "reimbursement.hpp"
+#include "reimbursement.h"
 
-int Reimbursement::count = 1;
+int count = 1;
 
-Reimbursement::Reimbursement(float val) {
-  id = count++;
-  setAmount(val);
-}
+float getAmount(Reimbursement_t* r) { return r->amount; }
+int getId(Reimbursement_t* r) { return r->id; }
+void setAmount(Reimbursement_t* r, float val) { r->amount = val; }
 
-float Reimbursement::getAmount()  const { return amount; }
-int Reimbursement::getId() const { return id; }
-void Reimbursement::setAmount(float val) { amount = val; }
+void printReimbursement(Reimbursement_t* r) {
 
-std::ostream& operator<<(std::ostream& os, const Reimbursement& r) {
-  os << "Reimbursement (id#" << r.getId() << "): $" << r.getAmount() << std::endl;
-  return os;
 }
